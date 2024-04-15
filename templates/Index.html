@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/index.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <form class="frm" action="">
+        <label for="id">id Ing:</label>
+        <input type="text" name="id_ing">
+        <label for="name">name ing:</label>
+        <input type="text" name="name_ing">
+        <label for="reticula">RETICULA</label>
+        <label for="clave">clave</label>
+        <input type="text"  name="clave">
+        <label for="nombre">name materia</label>
+        <input type="text"  name="name_mtr">
+        <label for="creditos">creditos materia</label>
+        <input type="text"  name="creditos">
+        <label for="semestre">semestre materia</label>
+        <input type="text"  name="semestre">
+        <button id="request" type="submit">SEND</button>
+    </form>
+</body>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</html>

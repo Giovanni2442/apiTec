@@ -1,0 +1,126 @@
+{
+    "id" : "1",
+    "ingenieria" : "sistemas",
+    "reticula" : [
+         {
+            "clave" : "rara",
+            "nombre" : "ciencias de datos",
+            "creditos" : "3",
+            "semestre" : "6"
+        },
+        {
+            "clave" : "rara",
+            "nombre" : "ciencias de datos",
+            "creditos" : "3",
+            "semestre" : "6"
+        },
+        {
+            "clave" : "rara",
+            "nombre" : "ciencias de datos",
+            "creditos" : "3",
+            "semestre" : "6"
+        }
+    ],
+    "especialidades" : [
+        {
+            "name" : "Desarrollo de Aplicaciones Empresariales",
+            "materias" : [     
+                    {   
+                         
+                        "clave" : "DAH2101",
+                        "nombre" : "Bases de Datos Avanzadas",
+                        "Semestre" : "7",
+                        "creditos" : "4"
+                        
+                    },
+                    {   
+                       
+                        "id" : "DAH2102",
+                        "nombre" : "Desarrollo de Aplicaciones para Dispositivos Móviles",
+                        "Semestre" : "8",
+                        "creditos" : "4"
+                        
+                    },
+                    {   
+                       
+                        "id" : "DAH2103",
+                        "nombre" : "Ciencias de Datos",
+                        "Semestre" : "8",
+                        "creditos" : "4"
+                    
+                    },
+                    {   
+                     
+                        "id" : "DAC2104",
+                        "nombre" : "Computo y Servicios en la Nube",
+                        "Semestre" : "8",
+                        "creditos" : "4"
+                    
+                    },
+                    {   
+                        
+                        "id" : "DAH2105",
+                        "nombre" : "Des. app. epresariales",
+                        "Semestre" : "8",
+                        "creditos" : "4"
+                    
+                    },
+                    {   
+                    
+                        "id" : "DAH2106",
+                        "nombre" : "Lab. despliege de aplic. moviles",
+                        "Semestre" : "8",
+                        "creditos" : "4"
+                    
+                    }
+                ]
+        },
+        {
+            "name" : "Redes Emergentes",
+            "materias" :
+                [
+                    {   
+                      
+                        "id" : "RAD2001",
+                        "nombre" : "Redes Inalámbricas",
+                        "Semestre" : "7",
+                        "creditos" : "5"
+                    
+                    },
+                    {   
+                    
+                        "id" : "RAD2002",
+                        "nombre" : "Diseño de redes",
+                        "Semestre" : "6",
+                        "creditos" : "5"
+                    
+                    },
+                    {   
+                        
+                        "id" : "RAD2003",
+                        "nombre" : "Fundamentos de IOT",
+                        "Semestre" : "8",
+                        "creditos" : "5"
+                    
+                    },
+                    {   
+                    
+                        "id" : "RAD2004",
+                        "nombre" : "Seguridad de Redes",
+                        "Semestre" : "8",
+                        "creditos" : "5"
+                    
+                    },
+                    {   
+                        
+                        "id" : "RAD2005",
+                        "nombre" : "Inf. desp. app.",
+                        "Semestre" : "9",
+                        "creditos" : "5"
+                    
+                    }
+                ]
+            }
+        ]
+    }
+
