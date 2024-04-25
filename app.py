@@ -5,11 +5,12 @@ from flask_mysqldb import MySQL
 
 app = Flask(__name__, template_folder='templates')
 
-app.config['MYSQL_HOST'] = "dbtec"  #host.docker.internal
+app.config['MYSQL_HOST'] = "db_tec"  #host.docker.internal
 app.config['MYSQL_USER'] = 'root'                   
 app.config['MYSQL_PASSWORD'] = '2442'
-#app.config['MYSQL_PORT'] = 3308
-app.config['MYSQL_DB'] = 'dbtec'
+#app.config['MYSQL_PORT'] = 3306
+app.config['MYSQL_DB'] = 'db_tec'
+
 db = MySQL(app)
 
 @app.route('/consulta/<int:id>', methods=['GET'])
@@ -28,7 +29,7 @@ def obtener_consulta(id):
                                     'nombre',r.nombre,
                                     'creditos',r.creditos,
                                     'semestre',r.semestre))
-                        FROM dbtec.reticula r
+                        FROM db_tec.reticula r
                         WHERE r.carrera_id = c.id 
                     ),
                     'especialidades',(
@@ -46,11 +47,11 @@ def obtener_consulta(id):
                                                     'semestre',m.Semestre,
                                                     'creditos',m.creditos))
                                         FROM 
-                                            dbtec.materias m , dbtec.especialidades e
+                                            db_tec.materias m , db_tec.especialidades e
                                         WHERE m.especialidad_id = e.id)
                                     ))
                         FROM 
-                            dbtec.especialidades e 
+                            db_tec.especialidades e 
                         WHERE e.carrera_id = c.id
                     )
                 )
@@ -67,7 +68,7 @@ def obtener_consulta(id):
                                     'nombre',r.nombre,
                                     'creditos',r.creditos,
                                     'semestre',r.semestre))
-                        FROM dbtec.reticula r
+                        FROM db_tec.reticula r
                         WHERE r.carrera_id = c.id 
                     ),
                     'especialidades',(
@@ -85,11 +86,11 @@ def obtener_consulta(id):
                                                     'semestre',m.Semestre,
                                                     'creditos',m.creditos))
                                         FROM 
-                                            dbtec.materias m
+                                            db_tec.materias m
                                         WHERE m.especialidad_id = e.id) -- Filtro por el id de la especialidad actual
                                     ))
                         FROM 
-                            dbtec.especialidades e 
+                            db_tec.especialidades e 
                         WHERE e.carrera_id = c.id
                     )
                 )

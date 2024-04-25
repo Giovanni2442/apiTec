@@ -13,4 +13,4 @@ RUN apk add --no-cache mysql-client \
     
 RUN pip3 --no-cache-dir install -r requirements.txt
     
-CMD ["python3","src/app.py"]
+CMD ["python3","app.py"]
