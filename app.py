@@ -5,10 +5,10 @@ from flask_mysqldb import MySQL
 
 app = Flask(__name__, template_folder='templates')
 
-app.config['MYSQL_HOST'] = "db_tec"  #host.docker.internal
+app.config['MYSQL_HOST'] = "host.docker.internal"  #host.docker.internal
 app.config['MYSQL_USER'] = 'root'                   
 app.config['MYSQL_PASSWORD'] = '2442'
-#app.config['MYSQL_PORT'] = 3306
+app.config['MYSQL_PORT'] = 13308
 app.config['MYSQL_DB'] = 'db_tec'
 
 db = MySQL(app)
@@ -73,6 +73,7 @@ def obtener_consulta(id):
                     ),
                     'especialidades',(
                         SELECT 
+                    
                             json_arrayagg(
                                 json_object(
                                     'id',e.id,
