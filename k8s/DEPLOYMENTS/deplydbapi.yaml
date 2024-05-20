@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:                # Cambiado de 'metadato' a 'metadata'
+  name: dplydbapi
+spec:
+  replicas: 1            # Indentado correctamente
+  selector:
+    matchLabels:
+      app: dplydbapi
+  template:              # Cambiado de 'templates' a 'template' y indentado correctamente
+    metadata:
+      labels:
+        app: dplydbapi
+    spec:
+      containers:
+      - name: poddbapi
+        image: mysql:latest
+        ports:
+        - containerPort: 13306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "2424"
+        - name: MYSQL_DATABASE
+          value: "db_tec"

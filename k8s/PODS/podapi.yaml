@@ -1,0 +1,10 @@
+apiVersion: v1                #
+kind: Pod                     #El tipo de Componente a crear 
+metadata:                     #Establece caracteristicas al POD
+  name: podapi                #Nombre del Pod
+spec:                          #Especificaciones del contenedor
+  containers:                        
+  - name: poapi                #Nombre del container
+    image: gio242424/nginx:v1      #Dirección docker hub
+    
+    

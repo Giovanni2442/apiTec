@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: poddbapi
+  labels:
+    app: dbapi
+spec:
+  containers:
+  - name: poddbapi
+    image: mysql:latest
+    ports:
+    - containerPort: 13306
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: "2442"
+    - name: MYSQL_DATABASE
+      value: "db_tec"
