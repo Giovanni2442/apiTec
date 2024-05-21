@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: webfront
+  name: webfront
 spec:
-    selector:
-        matchLabels:
-            app: webfrond
-    replicas: 1
-    template:
-        metadata:
-            labels: 
-                app: webfrond
-        spec:
-            containers:
-            - name: podfrond
-              image: gio242424/frond
-              ports:
-              - containerPort: 82
+  selector:
+    matchLabels:
+      app: webfront
+  replicas: 1
+  template:
+    metadata:
+      labels: 
+        app: webfront
+    spec:
+      containers:
+      - name: podfront
+        image: gio242424/frond
+        ports:
+        - containerPort: 82
