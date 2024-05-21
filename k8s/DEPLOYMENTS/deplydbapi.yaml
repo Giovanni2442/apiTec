@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:                # Cambiado de 'metadato' a 'metadata'
+metadata:
   name: dplydbapi
 spec:
-  replicas: 1            # Indentado correctamente
-  selector:
-    matchLabels:
-      app: dplydbapi
-  template:              # Cambiado de 'templates' a 'template' y indentado correctamente
+  replicas: 1
+  selector:               #Selector de pods
+    matchLabels:          #Localiza objetos con la etiqueta
+      app: dbapi
+  template:               #Define los pods
     metadata:
       labels:
-        app: dplydbapi
-    spec:
+        app: dbapi       #Nombre de los pods por este deploy
+    spec:                   #Especificaciones de los pods
       containers:
       - name: poddbapi
         image: mysql:latest
         ports:
-        - containerPort: 13306
+        - containerPort: 3306
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "2424"

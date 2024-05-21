@@ -1,25 +1,19 @@
-apiVersion: apps/v1      #especificar version
-kind: Deployment        #configuración del archivo yaml
-metadata:
-  name: dplyapi         #nombre del dply
-  labels:
-    estado: "1"
-spec:      #espesificaciónes del dply
-  selector:             #permite seleccionar un conjunto de objetos, como los pods
-    matchLabels:        #Localiza objetos con una etiqueta, o pods
-      app: "web"
-  replicas: 4          #numero de pods
-  template:             #plantila para definir los containers que utiliza la api
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: dplyapitec
+spec:
+  selector:
+    matchLabels:
+      app: webapi
+  replicas: 1
+  template:
     metadata:
       labels:
-        app: web
+        app: webapi
     spec:
       containers:
-      - name: podapi                     #nombre del pod
-        image: gio242424/k8s       #contenedor de docker hub
+      - name: podapi
+        image: gio242424/k8s:v1
         ports:
-        - containerPort: 80             #Escucha en el purto 80
-      - name: podfrond
-        image: gio242424/frond
-        ports:
-        - containerPort: 8080
+        - containerPort: 80

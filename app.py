@@ -5,13 +5,19 @@ from flask_mysqldb import MySQL
 
 app = Flask(__name__, template_folder='templates')
 
-app.config['MYSQL_HOST'] = "host.docker.internal"  #host.docker.internal
-app.config['MYSQL_USER'] = 'root'                   
-app.config['MYSQL_PASSWORD'] = '2442'
-app.config['MYSQL_PORT'] = 13308
-app.config['MYSQL_DB'] = 'db_tec'
+#app.config['MYSQL_HOST'] = "host.docker.internal"  #host.docker.internal
+#app.config['MYSQL_USER'] = 'root'                   
+#app.config['MYSQL_PASSWORD'] = '2442'
+#app.config['MYSQL_PORT'] = 13308
+#app.config['MYSQL_DB'] = 'db_tec'
 
-db = MySQL(app)
+app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST')
+app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER')
+app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD')
+app.config['MYSQL_PORT'] = int(os.environ.get('MYSQL_PORT', 3306))
+app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
+
+db = MySQL(app) 
 
 @app.route('/consulta/<int:id>', methods=['GET'])
 def obtener_consulta(id):

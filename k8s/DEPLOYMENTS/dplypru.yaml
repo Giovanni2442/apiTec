@@ -1,0 +1,32 @@
+# api-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dplyapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: podapi
+        image: gio242424/k8s:v1
+        ports:
+        - containerPort: 80  # Puerto en el que corre tu API
+        env:
+        - name: MYSQL_HOST
+          value: "srvdbapi"  # Nombre del servicio MySQL
+        - name: MYSQL_USER
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "2424"
+        - name: MYSQL_PORT
+          value: "3306"
+        - name: MYSQL_DB
+          value: "db_tec"
+

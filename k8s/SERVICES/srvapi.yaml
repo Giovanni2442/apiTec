@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: srvapi
   labels: 
-    app: web
+    app: webapi
 spec:
   type: NodePort
   ports:
@@ -11,5 +11,5 @@ spec:
     nodePort: 30001
     protocol: TCP
   selector:
-    app: web
+    app: webapi
 
