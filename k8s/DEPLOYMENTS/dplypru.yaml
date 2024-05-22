@@ -1,32 +1,71 @@
-# api-deployment.yaml
+#--Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: srvapi
+  labels: 
+    app: webapi
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 30001
+    protocol: TCP
+  selector:
+    app: webapi
+
+---
+#-Deploy
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: dplyapi
+metadata: 
+  name: dplyapitec
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: webapi
+  replicas: 1
   template:
     metadata:
       labels:
-        app: api
+        app: webapi
     spec:
       containers:
       - name: podapi
         image: gio242424/k8s:v1
         ports:
-        - containerPort: 80  # Puerto en el que corre tu API
+        - containerPort: 80
         env:
         - name: MYSQL_HOST
-          value: "srvdbapi"  # Nombre del servicio MySQL
+          value: "host.docker.internal"  # Cambia esto a la IP de tu base de datos local si es necesario
         - name: MYSQL_USER
           value: "root"
         - name: MYSQL_PASSWORD
-          value: "2424"
+          value: ""
         - name: MYSQL_PORT
           value: "3306"
         - name: MYSQL_DB
           value: "db_tec"
+        
+---
 
+#--Ingress
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingrsapi
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: api.g.sanchez.com
+    http:
+      paths:
+      - path: /dplyapitec
+        pathType: Prefix
+        backend:
+          service:
+            name: srvapi
+            port:
+              number: 80

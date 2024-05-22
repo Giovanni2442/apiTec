@@ -4,14 +4,14 @@ metadata:
   name: dplydbapi
 spec:
   replicas: 1
-  selector:               #Selector de pods
-    matchLabels:          #Localiza objetos con la etiqueta
+  selector:  # Selector de pods
+    matchLabels:  # Localiza objetos con la etiqueta
       app: dbapi
-  template:               #Define los pods
+  template:  # Define los pods
     metadata:
       labels:
-        app: dbapi       #Nombre de los pods por este deploy
-    spec:                   #Especificaciones de los pods
+        app: dbapi  # Nombre de los pods por este deploy
+    spec:  # Especificaciones de los pods
       containers:
       - name: poddbapi
         image: mysql:latest
@@ -22,3 +22,4 @@ spec:
           value: "2424"
         - name: MYSQL_DATABASE
           value: "db_tec"
+
